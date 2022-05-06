@@ -1,33 +1,31 @@
 
-const resolve = require('./resolve')
-
 const latin = {
-  A: 1,
-  B: 2,
-  C: 3,
-  D: 4,
-  E: 5,
-  F: 6,
-  G: 7,
-  H: 8,
-  I: 9,
-  J: 600,
-  K: 10,
-  L: 20,
-  M: 30,
-  N: 40,
-  O: 50,
-  P: 60,
-  Q: 70,
-  R: 80,
-  S: 90,
-  T: 100,
-  U: 200,
-  V: 700,
-  W: 900,
-  X: 300,
-  Y: 400,
-  Z: 500,
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+  e: 5,
+  f: 6,
+  g: 7,
+  h: 8,
+  i: 9,
+  j: 600,
+  k: 10,
+  l: 20,
+  m: 30,
+  n: 40,
+  o: 50,
+  p: 60,
+  q: 70,
+  r: 80,
+  s: 90,
+  t: 100,
+  u: 200,
+  v: 700,
+  w: 900,
+  x: 300,
+  y: 400,
+  z: 500,
 }
 
 // https://en.wikipedia.org/wiki/Gematria
@@ -35,34 +33,41 @@ const latin = {
 // https://torahcalc.com/info/gematria/
 
 // 'מספר הכרחי'
-const misparHechrachi = new Map()
-misparHechrachi.set('א', 1)
-misparHechrachi.set('ב', 2)
-misparHechrachi.set('ג', 3)
-misparHechrachi.set('ד', 4)
-misparHechrachi.set('ה', 5)
-misparHechrachi.set('ו', 6)
-misparHechrachi.set('ז', 7)
-misparHechrachi.set('ח', 8)
-misparHechrachi.set('ט', 9)
-misparHechrachi.set('י', 10)
-misparHechrachi.set('כ', 20)
-misparHechrachi.set('ל', 30)
-misparHechrachi.set('מ', 40)
-misparHechrachi.set('נ', 50)
-misparHechrachi.set('ס', 60)
-misparHechrachi.set('ע', 70)
-misparHechrachi.set('פ', 80)
-misparHechrachi.set('צ', 90)
-misparHechrachi.set('ק', 100)
-misparHechrachi.set('ר', 200)
-misparHechrachi.set('ש', 300)
-misparHechrachi.set('ת', 400)
-misparHechrachi.set('ך', 20)
-misparHechrachi.set('ם', 40)
-misparHechrachi.set('ן', 50)
-misparHechrachi.set('ף', 80)
-misparHechrachi.set('ץ', 90)
+const misparHechrachi = {
+  'א': 1,
+  'ב': 2,
+  'ג': 3,
+  'ד': 4,
+  'ה': 5,
+  'ו': 6,
+  'ז': 7,
+  'ח': 8,
+  'ט': 9,
+  'י': 10,
+  'כ': 11,
+  'ל': 12,
+  'מ': 13,
+  'נ': 14,
+  'ס': 15,
+  'ע': 16,
+  'פ': 17,
+  'צ': 18,
+  'ק': 19,
+  'ר': 20,
+  'ש': 21,
+  'ת': 22,
+  'ך': 11,
+  'ם': 13,
+  'ן': 14,
+  'ף': 17,
+  'ץ': 18,
+}
+
+const size = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  10, 20, 30, 40, 50, 60, 70, 80, 90,
+  100, 200, 300, 400,
+]
 
 // 'מספר גדול'
 const misparGadol = {
@@ -157,14 +162,18 @@ const misparKatan = {
   'ץ': 9,
 }
 
-const mapMisparHechrachi = word => resolve(word, misparHechrachi)
-const mapMisparGadol = word => resolve(word, misparGadol)
-const mapMisparSiduri = word => resolve(word, misparSiduri)
-const mapMisparKatan = word => resolve(word, misparKatan)
+const mapMisparHechrachi = array => array.map(x => size[misparHechrachi[x] - 1])
+const map20 = array => array.map(x => size[(misparHechrachi[x] - 1) % 20])
+const mapMisparGadol = array => array.map(x => misparGadol[x])
+const mapMisparSiduri = array => array.map(x => misparSiduri[x])
+const mapMisparKatan = array => array.map(x => misparKatan[x])
+const mapLatin = array => array.map(x => latin[x])
 
 module.exports = {
   mapMisparHechrachi,
   mapMisparGadol,
   mapMisparSiduri,
   mapMisparKatan,
+  mapLatin,
+  map20,
 }

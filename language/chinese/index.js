@@ -1,5 +1,5 @@
 
-const CHARACTER_LIST = require('./characters.json')
+const CHARACTER_MAP = require('./characters.json')
 
 const size = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -8,8 +8,10 @@ const size = [
   1000, 2000, 3000, 4000, 5000
 ]
 
-const mapLineCountModulo = (array) => array.map(x => size[CHARACTER_LIST[x].lineCount % 32])
+const mapLineCountModulo32 = (array) => array.map(x => size[(CHARACTER_MAP[x].lineCount - 1) % 32])
+const map20 = (array) => array.map(x => size[(CHARACTER_MAP[x].lineCount - 1) % 20])
 
 module.exports = {
-  mapLineCountModulo,
+  mapLineCountModulo32,
+  map20,
 }

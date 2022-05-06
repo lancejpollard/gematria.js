@@ -1,54 +1,64 @@
 const resolve = require('..')
 
-const abjad = new Map
-abjad.set('ا', 1)
-abjad.set('آ', 1)
-abjad.set('أ', 1)
-abjad.set('إ', 1)
-abjad.set('ٱ', 1)
-abjad.set('ء', 1)
-abjad.set('ب', 2)
-abjad.set('ب', 2)
-abjad.set('پ', 2)
-abjad.set('ج', 3)
-abjad.set('چ', 3)
-abjad.set('د', 4)
-abjad.set('ه', 5)
-abjad.set('ة', 5)
-abjad.set('ۀ', 5)
-abjad.set('و', 6)
-abjad.set('ؤ', 6)
-abjad.set('ز', 7)
-abjad.set('ژ', 7)
-abjad.set('ح', 8)
-abjad.set('ط', 9)
-abjad.set('ي', 10)
-abjad.set('ی', 10)
-abjad.set('ى', 10)
-abjad.set('ئ', 10)
-abjad.set('ك', 20)
-abjad.set('گ', 20)
-abjad.set('ک', 20)
-abjad.set('ل', 30)
-abjad.set('م', 40)
-abjad.set('ن', 50)
-abjad.set('س', 60)
-abjad.set('ع', 70)
-abjad.set('ف', 80)
-abjad.set('ص', 90)
-abjad.set('ق', 100)
-abjad.set('ر', 200)
-abjad.set('ش', 300)
-abjad.set('ت', 400)
-abjad.set('ث', 500)
-abjad.set('خ', 600)
-abjad.set('ذ', 700)
-abjad.set('ض', 800)
-abjad.set('ظ', 900)
-abjad.set('غ', 1000)
+const ABJAD_MAP = {
+  'ا': 1,
+  'آ': 1,
+  'أ': 1,
+  'إ': 1,
+  'ٱ': 1,
+  'ء': 1,
+  'ب': 2,
+  'ب': 2,
+  'پ': 2,
+  'ج': 3,
+  'چ': 3,
+  'د': 4,
+  'ه': 5,
+  'ة': 5,
+  'ۀ': 5,
+  'و': 6,
+  'ؤ': 6,
+  'ز': 7,
+  'ژ': 7,
+  'ح': 8,
+  'ط': 9,
+  'ي': 10,
+  'ی': 10,
+  'ى': 10,
+  'ئ': 10,
+  'ك': 11,
+  'گ': 11,
+  'ک': 11,
+  'ل': 12,
+  'م': 13,
+  'ن': 14,
+  'س': 15,
+  'ع': 16,
+  'ف': 17,
+  'ص': 18,
+  'ق': 19,
+  'ر': 20,
+  'ش': 21,
+  'ت': 22,
+  'ث': 23,
+  'خ': 24,
+  'ذ': 25,
+  'ض': 26,
+  'ظ': 27,
+  'غ': 28,
+}
 
-const mapAbjad = word => resolve(word, abjad)
+const size = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  10, 20, 30, 40, 50, 60, 70, 80, 90,
+  100, 200, 300, 400, 500, 600, 700, 800, 900,
+  1000
+]
+
+const mapAbjad = array => array.map(x => size[ABJAD_MAP[x] - 1])
+const map20 = array => array.map(x => size[(ABJAD_MAP[x] - 1) % 20])
 
 module.exports = {
   mapAbjad,
+  map20,
 }

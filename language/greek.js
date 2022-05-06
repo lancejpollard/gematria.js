@@ -1,39 +1,46 @@
 
-const resolve = require('..')
+const alphabet = {
+  'α': 1,
+  'β': 2,
+  'γ': 3,
+  'δ': 4,
+  'ε': 5,
+  'ϝ': 6,
+  'ϛ': 6,
+  'ζ': 7,
+  'η': 8,
+  'θ': 9,
+  'ι': 10,
+  'κ': 11,
+  'λ': 12,
+  'μ': 13,
+  'ν': 14,
+  'ξ': 15,
+  'ο': 16,
+  'π': 17,
+  'ϙ': 18,
+  'ρ': 19,
+  'σ': 20,
+  'ς': 20,
+  'τ': 21,
+  'υ': 22,
+  'φ': 23,
+  'χ': 24,
+  'ψ': 25,
+  'ω': 26,
+  'ϡ': 27,
+}
 
-const alphabet = new Map()
-alphabet.set('α', 1)
-alphabet.set('β', 2)
-alphabet.set('γ', 3)
-alphabet.set('δ', 4)
-alphabet.set('ε', 5)
-alphabet.set('ϝ', 6)
-alphabet.set('ϛ', 6)
-alphabet.set('ζ', 7)
-alphabet.set('η', 8)
-alphabet.set('θ', 9)
-alphabet.set('ι', 10)
-alphabet.set('κ', 20)
-alphabet.set('λ', 30)
-alphabet.set('μ', 40)
-alphabet.set('ν', 50)
-alphabet.set('ξ', 60)
-alphabet.set('ο', 70)
-alphabet.set('π', 80)
-alphabet.set('ϙ', 90)
-alphabet.set('ρ', 100)
-alphabet.set('σ', 200)
-alphabet.set('ς', 200)
-alphabet.set('τ', 300)
-alphabet.set('υ', 400)
-alphabet.set('φ', 500)
-alphabet.set('χ', 600)
-alphabet.set('ψ', 700)
-alphabet.set('ω', 800)
-alphabet.set('ϡ', 900)
+const size = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  10, 20, 30, 40, 50, 60, 70, 80, 90,
+  100, 200, 300, 400, 500, 600, 700, 800, 900,
+]
 
-const mapAlphabet = word => resolve(word, alphabet)
+const mapAlphabet = array => array.map(x => size[alphabet[x] - 1])
+const map20 = array => array.map(x => size[(alphabet[x] - 1) % 20])
 
 module.exports = {
   mapAlphabet,
+  map20,
 }
