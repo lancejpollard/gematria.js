@@ -1,6 +1,4 @@
 
-const resolve = require('./resolve')
-
 const hiragana = {
   'あ': 1,
   'い': 2,
@@ -110,14 +108,14 @@ const size = [
   1000, 2000, 3000, 4000, 5000
 ]
 
-const mapHiragana = array => array.map(x => hiragana[x])
-const mapKatakana = array => array.map(x => katakana[x])
-const mapHiragana20 = array => array.map(x => size[(hiragana[x] - 1) % 20])
-const mapKatakana20 = array => array.map(x => size[(katakana[x] - 1) % 20])
+const mapHiragana = array => array.map(x => hiragana[x]).filter(x => x)
+const mapKatakana = array => array.map(x => katakana[x]).filter(x => x)
+const mapHiragana9 = array => array.map(x => size[(hiragana[x] - 1) % 9]).filter(x => x)
+const mapKatakana9 = array => array.map(x => size[(katakana[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
   mapHiragana,
   mapKatakana,
-  mapHiragana20,
-  mapKatakana20,
+  mapHiragana9,
+  mapKatakana9,
 }

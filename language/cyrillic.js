@@ -47,10 +47,10 @@ const size = [
   100, 200, 300, 400, 500, 600, 700, 800, 900,
 ]
 
-const mapAlphabet = array => array.map(x => size[alphabet[x] - 1])
-const map20 = array => array.map(x => size[(alphabet[x] - 1) % 20])
+const mapAlphabet = array => array.map(x => size[alphabet[x] - 1]).filter(x => x)
+const map9 = array => array.map(x => size[(alphabet[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
   mapAlphabet,
-  map20
+  map9
 }

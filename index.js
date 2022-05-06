@@ -1,16 +1,37 @@
 
-const resolve = (chars, map) => {
-  let i = 0
-  const result = []
-  while (i < chars.length) {
-    const char = chars[i++]
-    const number = map.get(char)
-    if (number == null) {
-      throw new Error(`Unknown ${char} in ${word}`)
+const languages = require('./language')
+
+const sum = array => array.reduce((m, x) => m + x, 0)
+
+const product = array => array.reduce((m, x) => m * BigInt(x), 1n)
+
+const peak = array => {
+  let input = array
+  while (true) {
+    const s = sum(input)
+    if (s < 10) {
+      return s
     }
-    result.push(number)
+    input = String(s).split('').map(x => parseInt(x, 10))
   }
-  return result
 }
 
-module.exports = resolve
+const cycle = array => {
+  let i = 0
+  let x = array[i++]
+  while (i < array.length) {
+    let y = array[i++]
+    const s = x + y
+    const remainder = (s % 9) + 1
+    x = remainder
+  }
+  return (x - 1) % 9
+}
+
+module.exports = {
+  sum,
+  product,
+  peak,
+  cycle,
+  ...languages
+}

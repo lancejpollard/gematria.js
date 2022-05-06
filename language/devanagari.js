@@ -65,9 +65,9 @@ const CONSONANT_MAP = {
   ...originalConsonant25,
   ...the4Semivowels,
   ...the3Sibilants,
-  ...theGlottalthe3Sibilants,
-  ...extraConsonantsthe3Sibilants,
-  ...combinationCharactersthe3Sibilants,
+  ...theGlottal,
+  ...extraConsonants,
+  ...combinationCharacters,
 }
 
 const VOWEL_MAP = {
@@ -96,7 +96,6 @@ const VOWEL_MAP = {
 
 const ALPHABET_MAP = {
   ...CONSONANT_MAP,
-  ...VOWEL_MAP,
 }
 
 const size = [
@@ -106,10 +105,10 @@ const size = [
   1000, 2000, 3000, 4000, 5000
 ]
 
-const map32 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 32])
-const map20 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 20])
+const map32 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 32]).filter(x => x)
+const map9 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
   map32,
-  map20
+  map9
 }

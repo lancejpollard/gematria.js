@@ -133,12 +133,12 @@ const misparKatan = {
   'ץ': 9,
 }
 
-const mapMisparHechrachi = array => array.map(x => size[misparHechrachi[x] - 1])
-const map20 = array => array.map(x => size[(misparHechrachi[x] - 1) % 20])
-const mapMisparGadol = array => array.map(x => misparGadol[x])
-const mapMisparSiduri = array => array.map(x => misparSiduri[x])
-const mapMisparKatan = array => array.map(x => misparKatan[x])
-const mapLatin = array => array.map(x => latin[x])
+const mapMisparHechrachi = array => array.map(x => size[misparHechrachi[x] - 1]).filter(x => x)
+const map9 = array => array.map(x => size[(misparHechrachi[x] - 1) % 9]).filter(x => x)
+const mapMisparGadol = array => array.map(x => misparGadol[x]).filter(x => x)
+const mapMisparSiduri = array => array.map(x => misparSiduri[x]).filter(x => x)
+const mapMisparKatan = array => array.map(x => misparKatan[x]).filter(x => x)
+const mapLatin = array => array.map(x => latin[x]).filter(x => x)
 
 module.exports = {
   mapMisparHechrachi,
@@ -146,5 +146,5 @@ module.exports = {
   mapMisparSiduri,
   mapMisparKatan,
   mapLatin,
-  map20,
+  map9,
 }

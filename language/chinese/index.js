@@ -8,10 +8,14 @@ const size = [
   1000, 2000, 3000, 4000, 5000
 ]
 
-const mapLineCountModulo32 = (array) => array.map(x => size[(CHARACTER_MAP[x].lineCount - 1) % 32])
-const map20 = (array) => array.map(x => size[(CHARACTER_MAP[x].lineCount - 1) % 20])
+const mapLineCountModulo32 = (array) =>
+  array.map(x => size[(CHARACTER_MAP[x].lineCount - 1) % 32])
+    .filter(x => x)
+const map9 = (array) =>
+  array.map(x => size[(CHARACTER_MAP[x].lineCount - 1) % 9])
+    .filter(x => x)
 
 module.exports = {
   mapLineCountModulo32,
-  map20,
+  map9,
 }

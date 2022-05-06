@@ -32,10 +32,10 @@ const size = [
   100, 200, 300, 400, 500, 600
 ]
 
-const mapSymbols = (array) => array.map(x => size[SYMBOL_MAP[x] - 1])
-const map20 = (array) => array.map(x => size[(SYMBOL_MAP[x] - 1) % 20])
+const mapSymbols = (array) => array.map(x => size[SYMBOL_MAP[x] - 1]).filter(x => x)
+const map9 = (array) => array.map(x => size[(SYMBOL_MAP[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
   mapSymbols,
-  map20
+  map9
 }

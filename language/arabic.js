@@ -1,4 +1,3 @@
-const resolve = require('..')
 
 const ABJAD_MAP = {
   'ا': 1,
@@ -55,10 +54,10 @@ const size = [
   1000
 ]
 
-const mapAbjad = array => array.map(x => size[ABJAD_MAP[x] - 1])
-const map20 = array => array.map(x => size[(ABJAD_MAP[x] - 1) % 20])
+const mapAbjad = array => array.map(x => size[ABJAD_MAP[x] - 1]).filter(x => x)
+const map9 = array => array.map(x => size[(ABJAD_MAP[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
   mapAbjad,
-  map20,
+  map9,
 }
