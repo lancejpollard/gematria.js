@@ -1,58 +1,168 @@
 
-const resolve = require('./resolve')
-
 // english kaballah https://en.wikipedia.org/wiki/English_Qaballa
-// A=1  L=2  W=3  H=4  S=5  D=6  O=7  Z=8  K=9  V=10 G=11 R=12 C=13
-// N=14 Y=15 J=16 U=17 F=18 Q=19 B=20 M=21 X=22 I=23 T=24 E=25 P=26
-
-const alphabetToNumberMap = new Map()
-const a = (x, z) => alphabetToNumberMap.set(x, z)
-a('a', 1)
-a('b', 2)
-a('c', 3)
-a('d', 4)
-a('e', 5)
-a('f', 6)
-a('g', 7)
-a('h', 8)
-a('i', 9)
-a('j', 10)
-a('k', 11)
-a('l', 12)
-a('m', 13)
-a('n', 14)
-a('o', 15)
-a('p', 16)
-a('q', 17)
-a('r', 18)
-a('s', 19)
-a('t', 20)
-a('u', 21)
-a('v', 22)
-a('w', 23)
-a('x', 24)
-a('y', 25)
-a('z', 26)
-
-const numberToAlphabetMap = generateNumberToAlphabetMap()
-
-const mapAlphabet = word => resolve(word, alphabetToNumberMap)
-
-module.exports = {
-  alphabetToNumberMap,
-  numberToAlphabetMap,
-  mapAlphabet,
+const kabbalah = {
+  a: 1,
+  l: 2,
+  w: 3,
+  h: 4,
+  s: 5,
+  d: 6,
+  o: 7,
+  z: 8,
+  k: 9,
+  v: 10,
+  g: 11,
+  r: 12,
+  c: 13,
+  n: 14,
+  y: 15,
+  j: 16,
+  u: 17,
+  f: 18,
+  q: 19,
+  b: 20,
+  m: 21,
+  x: 22,
+  i: 23,
+  t: 24,
+  e: 25,
+  p: 26,
 }
 
-function generateNumberToAlphabetMap() {
-  const array = []
-  for (const [key, val] of alphabetToNumberMap) {
-    array.push([key, val])
-  }
-  array.reverse()
-  const map = new Map
-  array.forEach(([key, val]) => {
-    map.set(String(val), key)
-  })
-  return map
+const alphabet = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+  e: 5,
+  f: 6,
+  g: 7,
+  h: 8,
+  i: 9,
+  j: 10,
+  k: 11,
+  l: 12,
+  m: 13,
+  n: 14,
+  o: 15,
+  p: 16,
+  q: 17,
+  r: 18,
+  s: 19,
+  t: 20,
+  u: 21,
+  v: 22,
+  w: 23,
+  x: 24,
+  y: 25,
+  z: 26,
+}
+
+const hebrew = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+  e: 5,
+  f: 6,
+  g: 7,
+  h: 8,
+  i: 9,
+  j: 24,
+  k: 10,
+  l: 11,
+  m: 12,
+  n: 13,
+  o: 14,
+  p: 15,
+  q: 16,
+  r: 17,
+  s: 18,
+  t: 19,
+  u: 20,
+  v: 25,
+  w: 27,
+  x: 21,
+  y: 22,
+  z: 23,
+}
+
+const size = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  10, 20, 30, 40, 50, 60, 70, 80, 90,
+  100, 200, 300, 400, 500, 600, 700, 800, 900
+]
+
+const chaldean = {
+  a: 1,
+  i: 1,
+  j: 1,
+  q: 1,
+  y: 1,
+  b: 2,
+  k: 2,
+  r: 2,
+  c: 3,
+  g: 3,
+  l: 3,
+  s: 3,
+  d: 4,
+  m: 4,
+  t: 4,
+  e: 5,
+  h: 5,
+  n: 5,
+  x: 5,
+  u: 6,
+  v: 6,
+  w: 6,
+  o: 7,
+  z: 7,
+  f: 8,
+  p: 8,
+}
+
+const pythagorean = {
+  a: 1,
+  j: 1,
+  s: 1,
+  b: 2,
+  k: 2,
+  t: 2,
+  c: 3,
+  l: 3,
+  u: 3,
+  d: 4,
+  m: 4,
+  v: 4,
+  e: 5,
+  n: 5,
+  w: 5,
+  f: 6,
+  o: 6,
+  x: 6,
+  g: 7,
+  p: 7,
+  y: 7,
+  h: 8,
+  q: 8,
+  z: 8,
+  i: 9,
+  r: 9,
+}
+
+const mapChaldean = array => array.map(x => chaldean[x])
+const mapHebrew = array => array.map(x => size[hebrew[x] - 1])
+const map26 = array => array.map(x => alphabet[x])
+const map20 = array => array.map(x => size[(alphabet[x] - 1) % 20])
+const mapKabbalah = array => array.map(x => kabbalah[x])
+const mapPythagorean = array => array.map(x => pythagorean[x])
+
+module.exports = {
+  map20,
+  map26,
+  mapHebrew,
+  mapChaldean,
+  mapKabbalah,
+  mapPythagorean,
 }
