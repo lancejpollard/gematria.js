@@ -1,110 +1,123 @@
 
 const resolve = require('./resolve')
 
-const hiragana = new Map
-hiragana.set('あ', 1)
-hiragana.set('い', 2)
-hiragana.set('う', 3)
-hiragana.set('え', 4)
-hiragana.set('お', 5)
-hiragana.set('か', 6)
-hiragana.set('き', 7)
-hiragana.set('く', 8)
-hiragana.set('け', 9)
-hiragana.set('こ', 10)
-hiragana.set('さ', 11)
-hiragana.set('し', 12)
-hiragana.set('す', 13)
-hiragana.set('せ', 14)
-hiragana.set('そ', 15)
-hiragana.set('た', 16)
-hiragana.set('ち', 17)
-hiragana.set('つ', 18)
-hiragana.set('て', 19)
-hiragana.set('と', 20)
-hiragana.set('な', 21)
-hiragana.set('に', 22)
-hiragana.set('ぬ', 23)
-hiragana.set('ね', 24)
-hiragana.set('の', 25)
-hiragana.set('は', 26)
-hiragana.set('ひ', 27)
-hiragana.set('ふ', 28)
-hiragana.set('へ', 29)
-hiragana.set('ほ', 30)
-hiragana.set('ま', 31)
-hiragana.set('み', 32)
-hiragana.set('む', 33)
-hiragana.set('め', 34)
-hiragana.set('も', 35)
-hiragana.set('や', 36)
-hiragana.set('ゆ', 38)
-hiragana.set('よ', 40)
-hiragana.set('ら', 41)
-hiragana.set('り', 42)
-hiragana.set('る', 43)
-hiragana.set('れ', 44)
-hiragana.set('ろ', 45)
-hiragana.set('わ', 46)
-hiragana.set('ゐ', 47)
-hiragana.set('ゑ', 49)
-hiragana.set('を', 50)
-hiragana.set('ん', 33)
+const hiragana = {
+  'あ': 1,
+  'い': 2,
+  'う': 3,
+  'え': 4,
+  'お': 5,
+  'か': 6,
+  'き': 7,
+  'く': 8,
+  'け': 9,
+  'こ': 10,
+  'さ': 11,
+  'し': 12,
+  'す': 13,
+  'せ': 14,
+  'そ': 15,
+  'た': 16,
+  'ち': 17,
+  'つ': 18,
+  'て': 19,
+  'と': 20,
+  'な': 21,
+  'に': 22,
+  'ぬ': 23,
+  'ね': 24,
+  'の': 25,
+  'は': 26,
+  'ひ': 27,
+  'ふ': 28,
+  'へ': 29,
+  'ほ': 30,
+  'ま': 31,
+  'み': 32,
+  'む': 33,
+  'め': 34,
+  'も': 35,
+  'や': 36,
+  'ゆ': 38,
+  'よ': 40,
+  'ら': 41,
+  'り': 42,
+  'る': 43,
+  'れ': 44,
+  'ろ': 45,
+  'わ': 46,
+  'ゐ': 47,
+  'ゑ': 49,
+  'を': 50,
+  'ん': 33,
+}
 
-const katakana = new Map
-katakana.set('ア', 1)
-katakana.set('イ', 2)
-katakana.set('ウ', 3)
-katakana.set('エ', 4)
-katakana.set('オ', 5)
-katakana.set('カ', 6)
-katakana.set('キ', 7)
-katakana.set('ク', 8)
-katakana.set('ケ', 9)
-katakana.set('コ', 10)
-katakana.set('サ', 11)
-katakana.set('シ', 12)
-katakana.set('ス', 13)
-katakana.set('セ', 14)
-katakana.set('ソ', 15)
-katakana.set('タ', 16)
-katakana.set('チ', 17)
-katakana.set('ツ', 18)
-katakana.set('テ', 19)
-katakana.set('ト', 20)
-katakana.set('ナ', 21)
-katakana.set('ニ', 22)
-katakana.set('ヌ', 23)
-katakana.set('ネ', 24)
-katakana.set('ノ', 25)
-katakana.set('ハ', 26)
-katakana.set('ヒ', 27)
-katakana.set('フ', 28)
-katakana.set('ヘ', 29)
-katakana.set('ホ', 30)
-katakana.set('マ', 31)
-katakana.set('ミ', 32)
-katakana.set('ム', 33)
-katakana.set('メ', 34)
-katakana.set('モ', 35)
-katakana.set('ヤ', 36)
-katakana.set('ユ', 38)
-katakana.set('ヨ', 40)
-katakana.set('ラ', 41)
-katakana.set('リ', 42)
-katakana.set('ル', 43)
-katakana.set('レ', 44)
-katakana.set('ロ', 45)
-katakana.set('ワ', 46)
-katakana.set('ヰ', 47)
-katakana.set('ヱ', 49)
-katakana.set('ヲ', 50)
-katakana.set('ン', 33)
+const katakana = {
+  'ア': 1,
+  'イ': 2,
+  'ウ': 3,
+  'エ': 4,
+  'オ': 5,
+  'カ': 6,
+  'キ': 7,
+  'ク': 8,
+  'ケ': 9,
+  'コ': 10,
+  'サ': 11,
+  'シ': 12,
+  'ス': 13,
+  'セ': 14,
+  'ソ': 15,
+  'タ': 16,
+  'チ': 17,
+  'ツ': 18,
+  'テ': 19,
+  'ト': 20,
+  'ナ': 21,
+  'ニ': 22,
+  'ヌ': 23,
+  'ネ': 24,
+  'ノ': 25,
+  'ハ': 26,
+  'ヒ': 27,
+  'フ': 28,
+  'ヘ': 29,
+  'ホ': 30,
+  'マ': 31,
+  'ミ': 32,
+  'ム': 33,
+  'メ': 34,
+  'モ': 35,
+  'ヤ': 36,
+  'ユ': 38,
+  'ヨ': 40,
+  'ラ': 41,
+  'リ': 42,
+  'ル': 43,
+  'レ': 44,
+  'ロ': 45,
+  'ワ': 46,
+  'ヰ': 47,
+  'ヱ': 49,
+  'ヲ': 50,
+  'ン': 33,
+}
 
-const mapHiragana = word => resolve(word, hiragana)
-const mapKatakana = word => resolve(word, katakana)
+const size = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  10, 20, 30, 40, 50, 60, 70, 80, 90,
+  100, 200, 300, 400, 500, 600, 700, 800, 900,
+  1000, 2000, 3000, 4000, 5000
+]
+
+const mapHiragana = array => array.map(x => hiragana[x])
+const mapKatakana = array => array.map(x => katakana[x])
+const mapHiragana20 = array => array.map(x => size[(hiragana[x] - 1) % 20])
+const mapKatakana20 = array => array.map(x => size[(katakana[x] - 1) % 20])
 
 module.exports = {
   mapHiragana,
   mapKatakana,
+  mapHiragana20,
+  mapKatakana20,
 }
