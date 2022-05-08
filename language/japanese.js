@@ -104,18 +104,17 @@ const katakana = {
 const size = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
   10, 20, 30, 40, 50, 60, 70, 80, 90,
-  100, 200, 300, 400, 500, 600, 700, 800, 900,
-  1000, 2000, 3000, 4000, 5000
+  100, 200, 300, 400, 500, 600, 700, 800, 900
 ]
 
-const mapHiragana = array => array.map(x => hiragana[x]).filter(x => x)
-const mapKatakana = array => array.map(x => katakana[x]).filter(x => x)
+const mapHiragana27 = array => array.map(x => size[(hiragana[x] - 1) % 27]).filter(x => x)
+const mapKatakana27 = array => array.map(x => size[(katakana[x] - 1) % 27]).filter(x => x)
 const mapHiragana9 = array => array.map(x => size[(hiragana[x] - 1) % 9]).filter(x => x)
 const mapKatakana9 = array => array.map(x => size[(katakana[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
-  mapHiragana,
-  mapKatakana,
+  mapHiragana27,
+  mapKatakana27,
   mapHiragana9,
   mapKatakana9,
 }
