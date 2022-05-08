@@ -153,14 +153,14 @@ const pythagorean = {
 
 const mapChaldean = array => array.map(x => chaldean[x]).filter(x => x)
 const mapHebrew = array => array.map(x => size[hebrew[x] - 1]).filter(x => x)
-const map26 = array => array.map(x => alphabet[x]).filter(x => x)
+const mapAlphabet = array => array.map(x => alphabet[x]).filter(x => x)
 const map9 = array => array.map(x => size[(alphabet[x] - 1) % 9]).filter(x => x)
 const mapKabbalah = array => array.map(x => kabbalah[x]).filter(x => x)
 const mapPythagorean = array => array.map(x => pythagorean[x]).filter(x => x)
 
 module.exports = {
   map9,
-  map26,
+  mapAlphabet,
   mapHebrew,
   mapChaldean,
   mapKabbalah,

@@ -1,9 +1,7 @@
 
 const languages = require('./language')
 
-const sum = array => array.reduce((m, x) => m + x, 0)
-
-const product = array => array.reduce((m, x) => m * BigInt(x), 1n)
+const sum = array => array.reduce((m, x) => m + x)
 
 const peak = array => {
   let input = array
@@ -16,22 +14,20 @@ const peak = array => {
   }
 }
 
-const cycle = array => {
-  let i = 0
-  let x = array[i++]
-  while (i < array.length) {
-    let y = array[i++]
-    const s = x + y
-    const remainder = (s % 9) + 1
-    x = remainder
-  }
-  return (x - 1) % 9
+const cycle = (start, end, array) => {
+  const base = end - start + 1
+  const offset = start - 1
+  const sum = array.reduce((m, x) => m + x)
+  const rotation = sum % base || base
+  return rotation + offset
 }
+
+const split = (value) => value.toString().split('').map(x => parseInt(x, 10))
 
 module.exports = {
   sum,
-  product,
   peak,
   cycle,
+  split,
   ...languages
 }

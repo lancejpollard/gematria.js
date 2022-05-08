@@ -58,6 +58,7 @@ const mapAbjad = array => array.map(x => size[ABJAD_MAP[x] - 1]).filter(x => x)
 const map9 = array => array.map(x => size[(ABJAD_MAP[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
+  ABJAD_MAP,
   mapAbjad,
   map9,
 }

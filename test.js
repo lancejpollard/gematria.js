@@ -10,7 +10,7 @@ logLang('latin', 'Hebrew', [...'hello world'])
 logLang('greek', 'Alphabet', [...'χξϛ'])
 logLang('hebrew', 'MisparHechrachi', [...'יהוה'])
 logLang('gothic', 'Alphabet', [...'𐌼𐌰𐌽𐌰𐍃𐌴𐌸𐍃'])
-logLang('devanagari', '32', [...'कृष्ण'])
+logLang('devanagari', 'Alphabet', [...'कृष्ण'])
 logLang('devanagari', '9', [...'कृष्ण'])
 
 function logLang(l, t, i) {
@@ -20,7 +20,6 @@ function logLang(l, t, i) {
   logSum(array)
   logPeak(array)
   logCycle(array)
-  logProduct(array)
   console.log('')
 }
 
@@ -33,9 +32,5 @@ function logPeak(i) {
 }
 
 function logCycle(i) {
-  console.log('    cycle', String(gematria.cycle(i)))
-}
-
-function logProduct(i) {
-  console.log('  product', String(gematria.product(i)))
+  console.log('    cycle', String(gematria.cycle(1, 7, i)))
 }

@@ -138,13 +138,11 @@ const map9 = array => array.map(x => size[(misparHechrachi[x] - 1) % 9]).filter(
 const mapMisparGadol = array => array.map(x => misparGadol[x]).filter(x => x)
 const mapMisparSiduri = array => array.map(x => misparSiduri[x]).filter(x => x)
 const mapMisparKatan = array => array.map(x => misparKatan[x]).filter(x => x)
-const mapLatin = array => array.map(x => latin[x]).filter(x => x)
 
 module.exports = {
   mapMisparHechrachi,
   mapMisparGadol,
   mapMisparSiduri,
   mapMisparKatan,
-  mapLatin,
   map9,
 }
