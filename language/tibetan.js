@@ -49,6 +49,7 @@ const map27 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 27]).filter(x
 const map9 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
+  ALPHABET_MAP,
   map27,
   map9
 }

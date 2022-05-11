@@ -52,6 +52,7 @@ const extraConsonants = {
   'ड़': 13,
   'ढ़': 14,
   'फ़': 22,
+  'ॠ': 27,
 }
 
 const combinationCharacters = {
@@ -91,11 +92,12 @@ const VOWEL_MAP = {
   'ओ': 10,
   'ो': 10,
   'औ': 11,
-  'ौ': 11,
+  'ौ': 11
 }
 
 const ALPHABET_MAP = {
   ...CONSONANT_MAP,
+  // ...VOWEL_MAP,
 }
 
 const size = [
@@ -108,6 +110,7 @@ const map27 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 27]).filter(x
 const map9 = array => array.map(x => size[(ALPHABET_MAP[x] - 1) % 9]).filter(x => x)
 
 module.exports = {
+  ALPHABET_MAP,
   map27,
   map9
 }
