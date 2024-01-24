@@ -106,12 +106,12 @@ const size: Array<number> = [
 
 const map27 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(ALPHABET_MAP[x] ?? 1 - 1) % 27])
+    .map(x => size[((ALPHABET_MAP[x] as number) - 1) % 27])
     .filter(x => x != null) as Array<number>
 
 const map9 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(ALPHABET_MAP[x] ?? 1 - 1) % 9])
+    .map(x => size[((ALPHABET_MAP[x] as number) - 1) % 9])
     .filter(x => x != null) as Array<number>
 
 export { ALPHABET_MAP, map27, map9 }

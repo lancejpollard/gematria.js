@@ -71,11 +71,11 @@ const size: Array<number> = [
 
 const map27 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(SYMBOL_MAP[x] ?? 1 - 1) % 27])
+    .map(x => size[((SYMBOL_MAP[x] as number) - 1) % 27])
     .filter(x => x) as Array<number>
 const map9 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(SYMBOL_MAP[x] ?? 1 - 1) % 9])
+    .map(x => size[((SYMBOL_MAP[x] as number) - 1) % 9])
     .filter(x => x) as Array<number>
 
 export { map27, map9 }

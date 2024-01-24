@@ -7,7 +7,12 @@ Pass in an array of characters, which you can get with the _spread_ operator.
 
 ```js
 import chinese from '@lancejpollard/gematria.js/language/chinese'
+import greek from '@lancejpollard/gematria.js/language/greek'
 import { sum, peak, cycle } from '@lancejpollard/gematria.js'
+
+console.log(sum(greek.mapAlphabet([...'χξϛ'])))
+// 666 https://en.wikipedia.org/wiki/Number_of_the_beast
+
 const chars = [...'幸福']
 const integers = chinese.map9(chars)
 // add all the integers together
@@ -28,44 +33,44 @@ chinese.map9(["幸","福"])
     cycle 5
 
 latin.map9(["h","e","l","l","o"," ","w","o","r","l","d"])
-    array [9,6,4,4,7,1,6,7,1,4,5]
-      sum 54
-     peak 9
-    cycle 5
+    array [8,5,3,3,6,5,6,9,3,4]
+      sum 52
+     peak 7
+    cycle 3
 
 latin.mapHebrew(["h","e","l","l","o"," ","w","o","r","l","d"])
-    array [9,6,30,30,60,1,60,90,30,5]
-      sum 321
-     peak 6
-    cycle 6
+    array [8,5,20,20,50,900,50,80,20,4]
+      sum 1157
+     peak 5
+    cycle 2
 
 greek.mapAlphabet(["χ","ξ","ϛ"])
-    array [700,70,7]
-      sum 777
-     peak 3
-    cycle 7
+    array [600,60,6]
+      sum 666
+     peak 9
+    cycle 1
 
 hebrew.mapMisparHechrachi(["י","ה","ו","ה"])
-    array [20,6,7,6]
-      sum 39
-     peak 3
-    cycle 4
+    array [10,5,6,5]
+      sum 26
+     peak 8
+    cycle 5
 
 gothic.mapAlphabet(["𐌼","𐌰","𐌽","𐌰","𐍃","𐌴","𐌸","𐍃"])
-    array [50,2,60,2,300,6,10,300]
-      sum 730
-     peak 1
+    array [40,1,50,1,200,5,9,200]
+      sum 506
+     peak 2
     cycle 2
 
 devanagari.map27(["क","ृ","ष","्","ण"])
-    array [2,1,5,1,70]
-      sum 79
-     peak 7
+    array [1,4,60]
+      sum 65
+     peak 2
     cycle 2
 
 devanagari.map9(["क","ृ","ष","्","ण"])
-    array [2,1,5,1,7]
-      sum 16
-     peak 7
-    cycle 2
+    array [1,4,6]
+      sum 11
+     peak 2
+    cycle 4
 ```

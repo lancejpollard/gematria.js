@@ -125,11 +125,11 @@ const misparKatan: { [key: string]: number } = {
 
 const mapMisparHechrachi = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[misparHechrachi[x] ?? 1 - 1])
+    .map(x => size[(misparHechrachi[x] as number) - 1])
     .filter(x => x) as Array<number>
 const map9 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(misparHechrachi[x] ?? 1 - 1) % 9])
+    .map(x => size[((misparHechrachi[x] as number) - 1) % 9])
     .filter(x => x) as Array<number>
 const mapMisparGadol = (array: Array<string>): Array<number> =>
   array.map(x => misparGadol[x]).filter(x => x) as Array<number>

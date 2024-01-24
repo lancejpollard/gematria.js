@@ -107,19 +107,19 @@ const size: Array<number> = [
 
 const mapHiragana27 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(hiragana[x] ?? 1 - 1) % 27])
+    .map(x => size[((hiragana[x] as number) - 1) % 27])
     .filter(x => x) as Array<number>
 const mapKatakana27 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(katakana[x] ?? 1 - 1) % 27])
+    .map(x => size[((katakana[x] as number) - 1) % 27])
     .filter(x => x) as Array<number>
 const mapHiragana9 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(hiragana[x] ?? 1 - 1) % 9])
+    .map(x => size[((hiragana[x] as number) - 1) % 9])
     .filter(x => x) as Array<number>
 const mapKatakana9 = (array: Array<string>): Array<number> =>
   array
-    .map(x => size[(katakana[x] ?? 1 - 1) % 9])
+    .map(x => size[((katakana[x] as number) - 1) % 9])
     .filter(x => x) as Array<number>
 
 export { mapHiragana27, mapKatakana27, mapHiragana9, mapKatakana9 }
